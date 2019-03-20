@@ -1,0 +1,22 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "lib": [
+      "es2015"
+    ],
+    "strict": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "esModuleInterop": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

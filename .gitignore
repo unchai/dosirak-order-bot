@@ -1,0 +1,13 @@
+# intellij-idea
+.idea/
+*.iml
+
+# npm & yarn
+node_modules/
+.yarnclean
+
+# next
+.next/
+
+# now
+now-secrets.json
