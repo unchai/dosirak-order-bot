@@ -16,8 +16,8 @@ export default {
             throw new Error('금일 주문 내역이 없어 주문 마감을 취소할 수 없습니다.');
         }
 
-        if (orderStatus.closed) {
-            throw new Error('이미 주문이 마감되었습니다.');
+        if (!orderStatus.closed) {
+            throw new Error('아직 마감되지 않았습니다. ^^;');
         }
 
         await repo.saveOrderStatus({
