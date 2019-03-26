@@ -18,12 +18,11 @@ export default {
         }
 
         const menuNo = Number(args[1]);
-
-        if (!isNaN(menuNo) && menuNo < 1 || menuNo > MENU_LIST.length) {
-            throw new Error('세상에... 그런 메뉴는 없습니다...');
-        }
-
         const menu = MENU_LIST[menuNo - 1];
+
+        if (!menu) {
+            throw new Error('존재하지 않는 메뉴입니다.');
+        }
 
         await repo.saveUserOrder({
             ymd,
