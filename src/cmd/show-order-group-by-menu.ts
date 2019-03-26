@@ -1,12 +1,12 @@
 import moment from 'moment';
-import { checkAdminUser } from '../bot-lib';
+import { checkUser } from '../bot-lib';
 import repo from '../firebase-repository';
 import { ICommandFunc } from '../types';
 
 export default {
     async execute(userId: string, args: string[]): Promise<string> {
         const user = await repo.getUser(userId);
-        checkAdminUser(user);
+        checkUser(user);
 
         const ymd = args[1] ? args[1] : moment().format('YYYYMMDD');
 
@@ -16,7 +16,7 @@ export default {
             return '주문이 존재하지 않습니다.';
         }
 
-        let message = `주문 목록입니다. (${ymd})\n=============================\n`;
+        let message = `주문 목록입니다. (${ymd})\n==================\n`;
         let totalPrice = 0;
 
         orders.forEach((order, index) => {
@@ -24,7 +24,7 @@ export default {
             totalPrice += order.price;
         });
 
-        message += `=============================\n`;
+        message += `==================\n`;
 
         return message;
     },

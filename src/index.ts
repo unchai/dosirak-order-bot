@@ -9,20 +9,18 @@ const handleEvent = async (event: MessageEvent) => {
     const args = (event.message as TextEventMessage).text.split(' ');
 
     if (source.type !== 'user') {
-        return '안녕하세요. 미안하지만 사람만 저와 대화할 수 있어요~ ^^';
+        throw new Error('안녕하세요. 미안하지만 사람만 저와 대화할 수 있어요~ ^^');
     }
 
-    if (event.type !== 'message' || event.message.type !== 'text') {
-        return '무슨 말씀이신지 잘 모르겠네요.';
+    if (event.type === 'message' && event.message.type === 'text') {
+        const command = commands.find(item => item.keyword === args[0]);
+
+        if (command) {
+            return command.func.execute(source.userId, args);
+        }
     }
 
-    const command = commands.find(item => item.keyword === args[0]);
-
-    if (command) {
-        return command.func.execute(source.userId, args);
-    }
-
-    return '무슨말인지 잘 모르겠어요.';
+    throw new Error('무슨말인지 잘 모르겠어요.\n"도움말"이라고 입력해보시겠어요?');
 };
 
 export default async (req: IncomingMessage, res: ServerResponse) => {

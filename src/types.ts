@@ -38,6 +38,7 @@ export interface ICommandFunc {
 export interface ICommand {
     keyword: string;
     func: ICommandFunc;
+    usage?: string;
 }
 
 export interface IRepository {
