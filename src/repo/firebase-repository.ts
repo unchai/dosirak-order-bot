@@ -2,7 +2,7 @@ import firebase from '@firebase/app';
 import { FirebaseApp } from '@firebase/app-types';
 import '@firebase/firestore';
 import { FirebaseFirestore } from '@firebase/firestore-types';
-import { IOrderStatus, IRepository, IUser, IUserOrder } from './types';
+import { IOrderStatus, IRepository, IUser, IUserOrder } from '../types';
 
 const loadFirebase = (): FirebaseApp => {
     try {

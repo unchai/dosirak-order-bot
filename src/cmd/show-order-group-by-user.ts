@@ -1,7 +1,7 @@
 import { forEach, groupBy, sumBy } from 'lodash';
 import moment from 'moment';
 import { checkUser } from '../bot-lib';
-import repo from '../firebase-repository';
+import repo from '../repo';
 import { ICommandFunc, IUserOrder } from '../types';
 
 export default {

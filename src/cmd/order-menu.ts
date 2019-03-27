@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { checkUser } from '../bot-lib';
-import repo from '../firebase-repository';
 import MENU_LIST from '../menu-list';
+import repo from '../repo';
 import { ICommandFunc } from '../types';
 
 export default {

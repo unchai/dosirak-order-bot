@@ -7,7 +7,7 @@ const LINE_CONFIG: ClientConfig & MiddlewareConfig = {
     channelSecret: process.env.LINE_SECRET!,
 };
 
-const client = new Client(LINE_CONFIG);
+let client;
 
 export const resolveLineUser = async (userId: string): Promise<ILineUser> => {
     const res = await axios.get(`https://api.line.me/v2/bot/profile/${userId}`, {
@@ -17,4 +17,10 @@ export const resolveLineUser = async (userId: string): Promise<ILineUser> => {
     return res.data;
 };
 
-export const reply = async (replyToken: string, text: string) => client.replyMessage(replyToken, { type: 'text', text });
+export const reply = async (replyToken: string, text: string) => {
+    if (!client) {
+        client = new Client(LINE_CONFIG);
+    }
+
+    return client.replyMessage(replyToken, { type: 'text', text });
+};

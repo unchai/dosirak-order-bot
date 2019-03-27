@@ -1,5 +1,5 @@
-import repo from '../firebase-repository';
 import { resolveLineUser } from '../line-lib';
+import repo from '../repo';
 import { ICommandFunc } from '../types';
 
 export default {
