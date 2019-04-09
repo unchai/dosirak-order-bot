@@ -15,6 +15,12 @@ export default {
     async getUser(userId: string): Promise<IUser | undefined> {
         return enmap.getProp('users', userId);
     },
+    async getAllUsers(): Promise<IUser[]> {
+        return enmap.get('users');
+    },
+    async getRequestSignUpUsers(): Promise<IUser[]> {
+        return [];
+    },
     async saveUserOrder(userOrder: IUserOrder): Promise<void> {
         if (enmap.getProp('orders', userOrder.ymd)) {
             enmap.setProp(

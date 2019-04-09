@@ -2,7 +2,7 @@ import { MessageEvent, TextEventMessage, WebhookEvent, WebhookRequestBody } from
 import { IncomingMessage, ServerResponse } from 'http';
 import { json } from 'micro';
 import commands from './cmd';
-import { reply } from './line-lib';
+import lineClient from './line-lib';
 
 const handleEvent = async (event: MessageEvent) => {
     const { source } = event;
@@ -39,7 +39,10 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
                         message = err.message;
                     }
 
-                    return reply((event as MessageEvent).replyToken, message);
+                    return lineClient.replyMessage(
+                        (event as MessageEvent).replyToken,
+                        { type: 'text', text: message },
+                    );
                 },
             ),
         )

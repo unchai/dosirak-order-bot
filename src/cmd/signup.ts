@@ -1,4 +1,4 @@
-import { resolveLineUser } from '../line-lib';
+import lineClient from '../line-lib';
 import repo from '../repo';
 import { ICommandFunc } from '../types';
 
@@ -14,7 +14,7 @@ export default {
             throw new Error('이미 가입되었습니다.');
         }
 
-        const lineUser = await resolveLineUser(userId);
+        const lineUser = await lineClient.getProfile(userId);
 
         await repo.saveUser({
             userId,

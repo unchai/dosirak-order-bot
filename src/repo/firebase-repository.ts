@@ -41,6 +41,26 @@ export default {
         const docRef = await firestore.collection('users').doc(userId).get();
         return docRef.exists ? docRef.data() as IUser : undefined;
     },
+    async getAllUsers(): Promise<IUser[]> {
+        const arr: IUser[] = [];
+        const docRef = await firestore.collection('users').get();
+
+        docRef.forEach(doc => arr.push(doc.data() as IUser));
+
+        return arr;
+    },
+    async getRequestSignUpUsers(): Promise<IUser[]> {
+        const arr: IUser[] = [];
+        const docRef = await firestore
+            .collection('users')
+            .where('confirm', '==', false)
+            .orderBy('registerDate')
+            .get();
+
+        docRef.forEach(doc => arr.push(doc.data() as IUser));
+
+        return arr;
+    },
     async saveUserOrder(userOrder: IUserOrder): Promise<void> {
         const docRef = firestore.collection('orders').doc(userOrder.ymd);
         const listRef = docRef.collection('list');
@@ -83,6 +103,7 @@ export default {
             .collection('orders')
             .doc(ymd)
             .collection('list')
+            .orderBy('registerDate')
             .get();
 
         userOrderList.forEach(doc => arr.push(doc.data() as IUserOrder));

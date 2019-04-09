@@ -19,6 +19,7 @@
   "env": {
     "FIREBASE_API_KEY": "@firebase_api_key",
     "LINE_ACCESS_TOKEN": "@line_access_token",
-    "LINE_SECRET": "@line_secret"
+    "LINE_SECRET": "@line_secret",
+    "NPAY_URL": "@npay_url"
   }
 }
