@@ -32,7 +32,7 @@ export default {
 
         await repo.saveUserOrder(order);
 
-        await lineClient.pushMessage(user.userId, { type: 'text', text: '정산이 취소되었습니다.' });
+        await lineClient.pushMessage(order.userId, { type: 'text', text: '정산이 취소되었습니다.' });
 
         return `${ymd}, ${order.userName}, ${order.menu}, ${order.price}원의 정산이 취소되었습니다.`;
     },
