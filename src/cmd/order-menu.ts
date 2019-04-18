@@ -31,6 +31,7 @@ export default {
             menu: menu.name,
             price: menu.price,
             payback: false,
+            registerDate: new Date(),
         });
 
         return `메뉴 "${MENU_LIST[menuNo - 1].name}"의 주문이 완료되었습니다.`;

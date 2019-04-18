@@ -1,5 +1,6 @@
 import moment from 'moment';
 import { checkAdminUser } from '../bot-lib';
+import lineClient from '../line-lib';
 import repo from '../repo';
 import { ICommandFunc } from '../types';
 
@@ -30,6 +31,8 @@ export default {
         order.payback = false;
 
         await repo.saveUserOrder(order);
+
+        await lineClient.pushMessage(order.userId, { type: 'text', text: '정산이 취소되었습니다.' });
 
         return `${ymd}, ${order.userName}, ${order.menu}, ${order.price}원의 정산이 취소되었습니다.`;
     },

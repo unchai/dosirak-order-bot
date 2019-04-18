@@ -18,17 +18,12 @@ export interface IUserOrder {
     menu: string;
     price: number;
     payback: boolean;
+    registerDate: Date;
 }
 
 export interface IOrderStatus {
     ymd: string;
     closed: boolean;
-}
-
-export interface ILineUser {
-    userId: string;
-    displayName: string;
-    pictureUrl?: string;
 }
 
 export interface ICommandFunc {
@@ -47,6 +42,10 @@ export interface IRepository {
     removeUser(userId: string): void;
 
     getUser(userId: string): Promise<IUser | undefined>;
+
+    getAllUsers(): Promise<IUser[]>;
+
+    getRequestSignUpUsers(userId: string): Promise<IUser[]>;
 
     saveUserOrder(userOrder: IUserOrder): void;
 
