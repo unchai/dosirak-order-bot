@@ -14,7 +14,7 @@ export default {
         const userIdHint = args[2];
         const newName = args[3];
 
-        if (userNo < 1 || userNo > users.length || userIdHint) {
+        if (userNo < 1 || userNo > users.length || !userIdHint) {
             throw new Error('가입 승인처리를 할 수 없습니다.');
         }
 
