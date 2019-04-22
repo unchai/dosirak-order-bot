@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "dosirak order bot for line",
   "repository": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "dev": "nodemon --exec \"ts-node -r now-env src/dev.ts\"",
     "test": "jest --detectOpenHandles --forceExit",
