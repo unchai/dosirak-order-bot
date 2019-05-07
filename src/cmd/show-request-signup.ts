@@ -16,7 +16,7 @@ export default {
         let message = `가입 승인요청 사용자 목록입니다.\n==================\n`;
 
         users.forEach((v, i) => {
-            message += `${i + 1}. ${v.userId.substring(0, 4).toLowerCase()} ${v.userName}\n`;
+            message += `${i + 1}. ${v.userName}\n`;
         });
 
         message += `==================\n`;
