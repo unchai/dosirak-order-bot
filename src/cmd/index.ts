@@ -13,6 +13,7 @@ import showOrderGroupByUser from './show-order-group-by-user';
 import showRequestSignup from './show-request-signup';
 import signup from './signup';
 import unmarkPayback from './unmark-payback';
+import printOrder from './print-order';
 
 export default [
     { keyword: '도움말', func: showHelp, usage: '도움말을 보여줍니다.' },
@@ -25,6 +26,7 @@ export default [
     { keyword: '주문목록', func: showOrderGroupByMenu, usage: '주문자별 주문목록을 조회합니다. 특정일자를 조회할 경우 "주문목록 20170325"와 같이 입력해주세요.' },
     { keyword: '가입요청목록', func: showRequestSignup, usage: '(관리자전용) 가입요청한 사용자의 목록을 조회합니다.' },
     { keyword: '가입승인', func: confirmSignup, usage: '(관리자전용) 가입요청한 사용자를 승인합니다. 승인 시 사용자명을 변경하시려면 "가입승인 [번호] [바꿀이름]"과 같이 입력해주세요.' },
+    { keyword: '주문출력', func: printOrder, usage: '업체 제출용 주문서를 출력합니다.'},
     { keyword: '주문마감', func: closeOrder, usage: '(관리자전용) 오늘 주문을 마감합니다.' },
     { keyword: '주문마감취소', func: cancelCloseOrder, usage: '(관리자전용) 주문 마감을 취소합니다.' },
     {
