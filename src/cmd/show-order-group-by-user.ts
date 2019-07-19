@@ -17,8 +17,11 @@ export default {
             return '주문이 존재하지 않습니다.';
         }
 
-        let message = `주문 현황입니다. (${ymd})\n==================\n`;
+        let message = `주문서 (${ymd})\n==================\n\n`;
         let totalPrice = 0;
+
+        message += `주소 : 경기 성남시 분당구 분당내곡로 117, 크래프톤타워 9층\n`;
+        message += `연락처 : 010-4581-7752\n==================\n\n`;
 
         forEach(groupBy(orders, 'menu'), (v: IUserOrder[], k: string) => {
             message += `* ${k} x ${v.length}개\n`;
